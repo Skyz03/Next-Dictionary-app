@@ -8,8 +8,30 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        white: "#ffffff",
+        lightGray: "#f4f4f4",
+        softGray: "#e9e9e9",
+        brandPurple: "#a445ed",
+        alertRed: "#ff5252",
+      },
+
+      fontFamily: {
+        sans: ["Inter", "Helvetica", "Arial", "sans-serif"],
+        serif: ["Lora", "Georgia", "serif"],
+        mono: ["Inconsolata", "SFMono-Regular", "monospace"],
+      },
+      fontSize: {
+        "heading-l": ["64px", { lineHeight: "77px" }],
+        "heading-m": ["24px", { lineHeight: "29px" }],
+        "heading-s": ["20px", { lineHeight: "24px" }],
+        "body-m": ["18px", { lineHeight: "24px" }],
+        "body-s": ["14px", { lineHeight: "17px" }],
+      },
+      fontWeight: {
+        light: 300,
+        normal: 400,
+        bold: 700,
+        extrabold: 800,
       },
     },
   },
