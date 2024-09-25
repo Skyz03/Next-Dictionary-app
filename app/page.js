@@ -3,10 +3,12 @@ import React, { useState } from "react";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; // Replace with your chosen theme
 import "primereact/resources/primereact.min.css"; // Core PrimeReact styles
 // import "primeicons/primeicons.css"; // Icons used in PrimeReact components
-import Header from "./components/Header";
 import { InputText } from "primereact/inputtext";
+import Header from "./components/Header";
 import SearchComponent from "./components/Search";
 import PlayText from "./components/PlayText";
+import Type from "./components/Type";
+import Meaning from "./components/Meaning";
 
 export default function BasicDemo() {
   const [value, setValue] = useState("");
@@ -16,6 +18,8 @@ export default function BasicDemo() {
       <Header />
       <SearchComponent />
       <PlayText />
+      <Type />
+      <Meaning />
     </div>
   );
 }
