@@ -22,6 +22,7 @@ module.exports = {
       },
       fontSize: {
         "heading-l": ["64px", { lineHeight: "77px" }],
+        "heading-l-mobile": ["32px", { lineHeight: "38px" }],
         "heading-m": ["24px", { lineHeight: "29px" }],
         "heading-s": ["20px", { lineHeight: "24px" }],
         "body-m": ["18px", { lineHeight: "24px" }],

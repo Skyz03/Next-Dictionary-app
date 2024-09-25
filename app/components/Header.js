@@ -33,7 +33,7 @@ export default function Header() {
   }, []);
 
   return (
-    <div className="flex flex-row items-center justify-between p-4">
+    <div className="flex flex-row items-center justify-between">
       {/* Logo Image */}
       <Image width={30} height={30} src="/assets/images/logo.svg" alt="Logo" />
 
