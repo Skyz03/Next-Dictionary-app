@@ -1,22 +1,26 @@
-export default function Meaning() {
+export default function Meaning({ meanings }) {
   return (
     <div>
-      <p>Meaning</p>
-      <ul className="list-disc m-4 px-4">
-        <li>
-          (etc.) A set of keys used to operate a typewriter, computer etc.
-        </li>
-        <li>
-          A component of many instruments including the piano, organ, and
-          harpsichord consisting of usually black and white keys that cause
-          different tones to be produced when struck.
-        </li>
-        <li>
-          A device with keys of a musical keyboard, used to control electronic
-          sound-producing devices which may be built into or separate from the
-          keyboard device.
-        </li>
-      </ul>
+      <p className="font-bold">Meaning</p>
+
+      {meanings.map((meaning, index) => (
+        <div key={index} className="mt-4">
+          <h4 className="text-md italic">{meaning.partOfSpeech}</h4>
+
+          <ul className="list-disc m-4 px-4">
+            {meaning.definitions.map((definition, defIndex) => (
+              <li key={defIndex} className="mb-2">
+                {definition.definition}
+                {definition.example && (
+                  <blockquote className="italic text-gray-400 mt-2">
+                    Example: {definition.example}
+                  </blockquote>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   );
 }

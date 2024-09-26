@@ -1,13 +1,15 @@
-import Image from "next/image";
 import React, { useState } from "react";
+import Image from "next/image";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 
-export default function SearchComponent() {
+const SearchComponent = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = () => {
-    console.log("Searching for:", searchTerm);
+    if (searchTerm) {
+      onSearch(searchTerm); // Call parent component's search handler
+    }
   };
 
   return (
@@ -16,7 +18,7 @@ export default function SearchComponent() {
         <InputText
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="keyboard"
+          placeholder="Enter a word..."
           className="w-full py-2 px-4 bg-transparent text-white border-none focus:ring-0"
         />
         <Button
@@ -34,4 +36,6 @@ export default function SearchComponent() {
       </div>
     </div>
   );
-}
+};
+
+export default SearchComponent;
