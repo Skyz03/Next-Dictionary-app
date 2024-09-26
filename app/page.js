@@ -49,6 +49,7 @@ export default function BasicDemo() {
       {error && <p className="text-red-500 text-center">{error}</p>}
 
       {/* Render the components if a definition is available */}
+      {console.log(definition)}
       {definition && (
         <>
           {/* Word and pronunciation (PlayText) */}
@@ -70,7 +71,7 @@ export default function BasicDemo() {
           />
 
           {/* Source of the word */}
-          <Source />
+          <Source source={definition.sourceUrls || []} />
         </>
       )}
     </div>
