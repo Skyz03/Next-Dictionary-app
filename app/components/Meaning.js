@@ -1,24 +1,27 @@
 export default function Meaning({ meanings }) {
   return (
     <div>
-      <p className="font-bold">Meaning</p>
+      {meanings.map((meaning, meaningIndex) => (
+        <div key={meaningIndex}>
+          {/* Display partOfSpeech and "Meaning" only once per meaning */}
+          <div className="flex flex-row justify-between items-center mb-2">
+            <p className="font-bold lowercase my-8">{meaning.partOfSpeech}</p>
+            <hr className="w-[85%]" />
+          </div>
 
-      {meanings.map((meaning, index) => (
-        <div key={index} className="mt-4">
-          <h4 className="text-md italic">{meaning.partOfSpeech}</h4>
+          <p className="font-bold mb-4">Meaning</p>
 
-          <ul className="list-disc m-4 px-4">
-            {meaning.definitions.map((definition, defIndex) => (
-              <li key={defIndex} className="mb-2">
-                {definition.definition}
-                {definition.example && (
-                  <blockquote className="italic text-gray-400 mt-2">
-                    Example: {definition.example}
-                  </blockquote>
-                )}
-              </li>
-            ))}
-          </ul>
+          {/* Now map over definitions */}
+          {meaning.definitions.map((definition, defIndex) => (
+            <li key={defIndex} className="mb-2">
+              {definition.definition}
+              {definition.example && (
+                <blockquote className="italic text-gray-400 mt-2">
+                  Example: {definition.example}
+                </blockquote>
+              )}
+            </li>
+          ))}
         </div>
       ))}
     </div>

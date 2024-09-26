@@ -8,7 +8,6 @@ import { fetchWordDefinition } from "./utils/api"; // Fetch word definition from
 import Header from "./components/Header";
 import SearchComponent from "./components/Search";
 import PlayText from "./components/PlayText";
-import Type from "./components/Type";
 import Meaning from "./components/Meaning";
 import Synonyms from "./components/Synonyms";
 import Source from "./components/Source";
@@ -59,7 +58,6 @@ export default function BasicDemo() {
           />
 
           {/* Type of word (noun, verb, etc.) - assuming it's part of 'definition.meanings' */}
-          <Type type={definition.meanings[0]?.partOfSpeech} />
 
           {/* Meaning(s) */}
           <Meaning meanings={definition.meanings} />
