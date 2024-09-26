@@ -9,6 +9,8 @@ import SearchComponent from "./components/Search";
 import PlayText from "./components/PlayText";
 import Type from "./components/Type";
 import Meaning from "./components/Meaning";
+import Synonyms from "./components/Synonyms";
+import Source from "./components/Source";
 
 export default function BasicDemo() {
   const [value, setValue] = useState("");
@@ -20,6 +22,10 @@ export default function BasicDemo() {
       <PlayText />
       <Type />
       <Meaning />
+      <Synonyms />
+      <Type />
+      <Meaning />
+      <Source />
     </div>
   );
 }

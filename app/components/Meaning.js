@@ -2,8 +2,8 @@ export default function Meaning() {
   return (
     <div>
       <p>Meaning</p>
-      <ul>
-        <li className="list-disc">
+      <ul className="list-disc m-4 px-4">
+        <li>
           (etc.) A set of keys used to operate a typewriter, computer etc.
         </li>
         <li>
