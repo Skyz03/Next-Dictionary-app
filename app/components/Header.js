@@ -39,20 +39,25 @@ export default function Header() {
 
       {/* Dropdown and Toggle Section */}
       <div className="flex flex-row items-center gap-5">
-        {/* Dropdown for Font Selection */}
-        <Dropdown
-          value={selectedFont} // Default value set to Sans Serif
-          onChange={handleFontChange}
-          options={fontOptions}
-          optionLabel="name"
-          placeholder="Select a Font"
-          className="w-full md:w-14rem border border-gray-300 rounded-lg"
-          checkmark={true}
-        />
+        {/* Dropdown with Vertical Line After */}
+        <div className="flex items-center">
+          {/* Dropdown for Font Selection */}
+          <Dropdown
+            value={selectedFont}
+            onChange={handleFontChange}
+            options={fontOptions}
+            optionLabel="name"
+            placeholder="Select a Font"
+            className="w-full md:w-14rem rounded-lg bg-black"
+            checkmark={true}
+          />
+          {/* Vertical Line */}
+          <div className="border-l h-8  border-gray-400"></div>
+        </div>
 
         {/* Dark Mode Toggle Switch */}
         <InputSwitch
-          className="w-20"
+          className="w-12"
           checked={isDarkMode}
           onChange={handleDarkModeToggle}
           aria-label="Dark Mode Toggle"

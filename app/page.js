@@ -36,7 +36,7 @@ export default function BasicDemo() {
   };
 
   return (
-    <div className="p-4 flex flex-col gap-5">
+    <div className="p-4 bg-black flex flex-col gap-5">
       {/* Header component */}
       <Header />
 

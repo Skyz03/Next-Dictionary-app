@@ -12,12 +12,20 @@ const SearchComponent = ({ onSearch }) => {
     }
   };
 
+  // Function to handle keydown event (Enter key)
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <div className="w-full">
-      <div className="flex justify-center items-center w-[90%] mx-auto p-inputgroup bg-gray-900 rounded-lg">
+      <div className="flex justify-center items-center w-full mx-auto p-inputgroup bg-gray-900 rounded-lg">
         <InputText
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyDown={handleKeyDown}
           placeholder="Enter a word..."
           className="w-full py-2 px-4 bg-transparent text-white border-none focus:ring-0"
         />
