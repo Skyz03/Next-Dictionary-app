@@ -9,7 +9,6 @@ import Header from "./components/Header";
 import SearchComponent from "./components/Search";
 import PlayText from "./components/PlayText";
 import Meaning from "./components/Meaning";
-import Synonyms from "./components/Synonyms";
 import Source from "./components/Source";
 
 export default function BasicDemo() {
@@ -63,10 +62,6 @@ export default function BasicDemo() {
           <Meaning meanings={definition.meanings} />
 
           {/* Synonyms and antonyms */}
-          <Synonyms
-            synonyms={definition.meanings[0]?.synonyms || []}
-            antonyms={definition.meanings[0]?.antonyms || []}
-          />
 
           {/* Source of the word */}
           <Source source={definition.sourceUrls || []} />
