@@ -1,8 +1,7 @@
 "use client"; // Required for Next.js components that use hooks
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; // Replace with your chosen theme
 import "primereact/resources/primereact.min.css"; // Core PrimeReact styles
-// import "primeicons/primeicons.css"; // Icons used in PrimeReact components
 import { fetchWordDefinition } from "./utils/api"; // Fetch word definition from API
 
 import Header from "./components/Header";
@@ -17,25 +16,26 @@ export default function BasicDemo() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Function to handle search from SearchComponent
-  const handleSearch = async (searchTerm) => {
+  // Function to handle search from SearchComponent, memoized to avoid unnecessary re-creation
+  const handleSearch = useCallback(async (searchTerm) => {
     setLoading(true);
     setError(null);
 
-    const result = await fetchWordDefinition(searchTerm); // Fetch word definition
-
-    setLoading(false);
-
-    if (result) {
-      setDefinition(result[0]); // Store the first word result
-    } else {
-      setError("Word not found or an error occurred.");
-      setDefinition(null);
+    try {
+      const result = await fetchWordDefinition(searchTerm); // Fetch word definition
+      setDefinition(result?.[0] || null); // Store the first word result if it exists
+      if (!result || result.length === 0) {
+        setError("Word not found.");
+      }
+    } catch (err) {
+      setError("An error occurred while fetching the word.");
+    } finally {
+      setLoading(false);
     }
-  };
+  }, []);
 
   return (
-    <div className="p-4 bg-black flex flex-col gap-5">
+    <div className="p-4 bg-black flex flex-col gap-5 min-h-screen">
       {/* Header component */}
       <Header />
 
@@ -47,21 +47,16 @@ export default function BasicDemo() {
       {error && <p className="text-red-500 text-center">{error}</p>}
 
       {/* Render the components if a definition is available */}
-      {console.log(definition)}
       {definition && (
         <>
           {/* Word and pronunciation (PlayText) */}
           <PlayText
             word={definition.word}
-            phonetics={definition.phonetics[0]}
+            phonetics={definition.phonetics?.[0]}
           />
-
-          {/* Type of word (noun, verb, etc.) - assuming it's part of 'definition.meanings' */}
 
           {/* Meaning(s) */}
           <Meaning meanings={definition.meanings} />
-
-          {/* Synonyms and antonyms */}
 
           {/* Source of the word */}
           <Source source={definition.sourceUrls || []} />
