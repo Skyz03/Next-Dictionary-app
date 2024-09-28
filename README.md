@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Dictionary Web App
 
-## Getting Started
+This project is a dictionary web app built using React and Next.js. It allows users to search for words and see definitions, synonyms, and antonyms. The app fetches data from the Free Dictionary API and presents it in a clean, mobile-first design with dark mode and font customization features.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- [Dictionary Web App](#dictionary-web-app)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The Challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [My Process](#my-process)
+    - [Built With](#built-with)
+    - [What I Learned](#what-i-learned)
+    - [Continued Development](#continued-development)
+    - [Useful Resources](#useful-resources)
+  - [Author](#author)
+  - [Acknowledgments](#acknowledgments)
+
+## Overview
+
+### The Challenge
+
+Users should be able to:
+
+- Search for words and see the Free Dictionary API's response, including definitions, synonyms, antonyms, and phonetic pronunciations.
+- Play the audio pronunciation of the word (when available).
+- See a validation message if a blank search is attempted.
+- Switch between different font styles (Serif, Sans Serif, Mono).
+- Toggle between light and dark mode.
+- View a responsive layout optimized for all screen sizes.
+- **Bonus**: Automatically detect and apply the correct color scheme based on system preferences.
+
+### Screenshot
+
+![Screenshot](./screenshot.jpg)
+
+### Links
+
+- [Solution URL](https://your-solution-url.com)
+- [Live Site URL](https://your-live-site-url.com)
+
+## My Process
+
+### Built With
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Tailwind CSS for utility-first styling
+- React for building the UI
+- Next.js for SSR and routing
+- PrimeReact for UI components
+- Mobile-first workflow
+- Free Dictionary API for fetching word data
+
+### What I Learned
+
+While working on this project, I improved my understanding of API integrations in Next.js and React. I also learned how to handle edge cases such as empty search queries, display audio pronunciations, and switch between light and dark themes. Here's an example of how I managed the search:
+
+```js
+const handleSearch = useCallback(async (searchTerm) => {
+  setLoading(true);
+  setError(null);
+
+  try {
+    const result = await fetchWordDefinition(searchTerm); // API call
+    setDefinition(result?.[0] || null); // Handle no results
+    if (!result || result.length === 0) {
+      setError("Word not found.");
+    }
+  } catch (err) {
+    setError("An error occurred while fetching the word.");
+  } finally {
+    setLoading(false);
+  }
+}, []);
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Continued Development
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+In future iterations, I would like to:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Add a favorites feature where users can save frequently searched words.
+- Enhance accessibility by improving keyboard navigation and screen reader support.
+- Implement unit tests and integration tests for better maintainability.
+- Improve performance by adding caching mechanisms for API responses.
 
-## Learn More
+### Useful Resources
 
-To learn more about Next.js, take a look at the following resources:
+- [MDN Web Docs - prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) - Helped me understand how to implement system-based dark mode.
+- [React Documentation](https://reactjs.org/docs/getting-started.html) - General guidance on managing state and components.
+- [Next.js Documentation](https://nextjs.org/docs) - Clear and concise documentation for server-side rendering and routing.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Author
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Website - [Your Name](https://www.your-site.com)
+- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Twitter - [@yourusername](https://twitter.com/yourusername)
 
-## Deploy on Vercel
+## Acknowledgments
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Thanks to [Frontend Mentor](https://www.frontendmentor.io) for providing challenges that help developers like me to level up their skills.

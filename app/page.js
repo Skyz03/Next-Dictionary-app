@@ -16,6 +16,9 @@ export default function BasicDemo() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // State for the selected font
+  const [selectedFont, setSelectedFont] = useState("font-sans");
+
   // Function to handle search from SearchComponent, memoized to avoid unnecessary re-creation
   const handleSearch = useCallback(async (searchTerm) => {
     setLoading(true);
@@ -35,9 +38,11 @@ export default function BasicDemo() {
   }, []);
 
   return (
-    <div className="p-4 bg-black flex flex-col gap-5 min-h-screen">
-      {/* Header component */}
-      <Header />
+    <div
+      className={`p-4 ${selectedFont} bg-black flex flex-col gap-5 min-h-screen`}
+    >
+      {/* Header component, pass setSelectedFont to update font */}
+      <Header setSelectedFont={setSelectedFont} />
 
       {/* Search component with a callback function for search handling */}
       <SearchComponent onSearch={handleSearch} />

@@ -5,28 +5,32 @@ import React, { useState, useMemo, useCallback } from "react";
 import { Dropdown } from "primereact/dropdown";
 import { InputSwitch } from "primereact/inputswitch";
 
-export default function Header() {
+export default function Header({ setSelectedFont }) {
   // Set Sans Serif as the default selected font
-  const [selectedFont, setSelectedFont] = useState({
+  const [selectedFont, setSelectedFontLocal] = useState({
     name: "Sans Serif",
-    code: "sans-serif",
+    code: "font-sans", // Updated to use class names like "font-sans"
   });
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   // Memoize the font options
   const fontOptions = useMemo(
     () => [
-      { name: "Sans Serif", code: "sans-serif" },
-      { name: "Serif", code: "serif" },
-      { name: "Mono", code: "mono" },
+      { name: "Sans Serif", code: "font-sans" }, // Using Tailwind's font-sans
+      { name: "Serif", code: "font-serif" }, // Using Tailwind's font-serif
+      { name: "Mono", code: "font-mono" }, // Using Tailwind's font-mono
     ],
     []
   );
 
   // Handlers for updating state
-  const handleFontChange = useCallback((e) => {
-    setSelectedFont(e.value);
-  }, []);
+  const handleFontChange = useCallback(
+    (e) => {
+      setSelectedFontLocal(e.value); // Update local state
+      setSelectedFont(e.value.code); // Pass selected font to the parent component
+    },
+    [setSelectedFont]
+  );
 
   const handleDarkModeToggle = useCallback((e) => {
     setIsDarkMode(e.value);
@@ -52,7 +56,7 @@ export default function Header() {
             checkmark={true}
           />
           {/* Vertical Line */}
-          <div className="border-l h-8  border-gray-400"></div>
+          <div className="border-l h-8 border-gray-400"></div>
         </div>
 
         {/* Dark Mode Toggle Switch */}
