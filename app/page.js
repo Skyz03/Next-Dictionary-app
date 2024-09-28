@@ -19,6 +19,9 @@ export default function BasicDemo() {
   // State for the selected font
   const [selectedFont, setSelectedFont] = useState("font-sans");
 
+  // State for dark mode
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   // Function to handle search from SearchComponent, memoized to avoid unnecessary re-creation
   const handleSearch = useCallback(async (searchTerm) => {
     setLoading(true);
@@ -39,16 +42,28 @@ export default function BasicDemo() {
 
   return (
     <div
-      className={`p-4 ${selectedFont} bg-black flex flex-col gap-5 min-h-screen`}
+      className={`p-4 ${selectedFont} ${
+        isDarkMode ? "bg-black" : "bg-white"
+      } flex flex-col gap-5 min-h-screen`}
     >
-      {/* Header component, pass setSelectedFont to update font */}
-      <Header setSelectedFont={setSelectedFont} />
+      {/* Header component, pass setSelectedFont and setIsDarkMode to update font and color */}
+      <Header
+        setSelectedFont={setSelectedFont}
+        setIsDarkMode={setIsDarkMode}
+        isDarkMode={isDarkMode}
+      />
 
       {/* Search component with a callback function for search handling */}
       <SearchComponent onSearch={handleSearch} />
 
       {/* Loading and Error handling */}
-      {loading && <p className="text-center text-white">Loading...</p>}
+      {loading && (
+        <p
+          className={`text-center ${isDarkMode ? "text-white" : "text-black"}`}
+        >
+          Loading...
+        </p>
+      )}
       {error && <p className="text-red-500 text-center">{error}</p>}
 
       {/* Render the components if a definition is available */}
