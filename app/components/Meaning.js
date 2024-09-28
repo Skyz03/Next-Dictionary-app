@@ -46,7 +46,20 @@ export default function Meaning({ meanings, isDarkMode }) {
             <div className="flex flex-row gap-4 mt-4">
               <p className="text-gray-500">Synonyms</p>
               <p className="text-brandPurple font-bold">
-                {meaning.synonyms.join(", ")}
+                {meaning.synonyms.map((synonym, index) => (
+                  <a
+                    key={index}
+                    href={`https://www.google.com/search?q=${encodeURIComponent(
+                      synonym
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    {synonym}
+                    {index < meaning.synonyms.length - 1 ? ", " : ""}
+                  </a>
+                ))}
               </p>
             </div>
           )}
@@ -56,7 +69,20 @@ export default function Meaning({ meanings, isDarkMode }) {
             <div className="flex flex-row gap-4 mt-2">
               <p className="text-gray-500">Antonyms</p>
               <p className="text-brandPurple font-bold">
-                {meaning.antonyms.join(", ")}
+                {meaning.antonyms.map((antonym, index) => (
+                  <a
+                    key={index}
+                    href={`https://www.google.com/search?q=${encodeURIComponent(
+                      antonym
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    {antonym}
+                    {index < meaning.antonyms.length - 1 ? ", " : ""}
+                  </a>
+                ))}
               </p>
             </div>
           )}

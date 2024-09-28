@@ -5,30 +5,43 @@ import { Button } from "primereact/button";
 
 const SearchComponent = ({ onSearch, isDarkMode }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [error, setError] = useState(false); // State for managing input error
 
   const handleSearch = () => {
-    if (searchTerm) {
+    if (!searchTerm.trim()) {
+      setError(true); // Show error if input is empty
+    } else {
+      setError(false); // Reset error
       onSearch(searchTerm); // Call parent component's search handler
     }
   };
 
-  // Function to handle keydown event (Enter key)
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       handleSearch();
     }
   };
 
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+    if (e.target.value.trim() === "") {
+      setError(true); // Set error if input becomes empty
+    } else {
+      setError(false); // Remove error if input has text
+    }
+  };
+
   return (
     <div className="w-full">
       <div
-        className={`flex justify-center items-center w-full mx-auto p-inputgroup ${
+        className={`flex justify-center items-center border w-full mx-auto p-inputgroup rounded-lg transition-colors hover:border-purple-500 focus-within:border-purple-500 ${
           isDarkMode ? "bg-gray-900" : "bg-softGray"
-        }  rounded-lg`}
+        } ${error ? " border-red-500" : "border-black"}
+         `} // Hover and focus state for purple border
       >
         <InputText
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={handleInputChange} // Call custom input change handler
           onKeyDown={handleKeyDown}
           placeholder="Enter a word..."
           className={`w-full py-2 px-4 bg-transparent border-none focus:ring-0 ${
@@ -48,6 +61,9 @@ const SearchComponent = ({ onSearch, isDarkMode }) => {
           />
         </Button>
       </div>
+      {error && (
+        <p className="text-red-500 text-sm mt-2">Whoops, can’t be empty…</p>
+      )}
     </div>
   );
 };
