@@ -3,7 +3,7 @@ import Image from "next/image";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 
-const SearchComponent = ({ onSearch }) => {
+const SearchComponent = ({ onSearch, isDarkMode }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = () => {
@@ -21,13 +21,19 @@ const SearchComponent = ({ onSearch }) => {
 
   return (
     <div className="w-full">
-      <div className="flex justify-center items-center w-full mx-auto p-inputgroup bg-gray-900 rounded-lg">
+      <div
+        className={`flex justify-center items-center w-full mx-auto p-inputgroup ${
+          isDarkMode ? "bg-gray-900" : "bg-softGray"
+        }  rounded-lg`}
+      >
         <InputText
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Enter a word..."
-          className="w-full py-2 px-4 bg-transparent text-white border-none focus:ring-0"
+          className={`w-full py-2 px-4 bg-transparent border-none focus:ring-0 ${
+            isDarkMode ? "text-white" : "text-black"
+          }`}
         />
         <Button
           onClick={handleSearch}

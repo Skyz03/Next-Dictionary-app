@@ -1,11 +1,15 @@
 import Image from "next/image";
 import { Button } from "primereact/button";
 
-export default function Source({ source }) {
+export default function Source({ source, isDarkMode }) {
   return (
     <div className="space-y-2">
       {/* Source Label */}
-      <p className="underline text-lightGray opacity-50 text-sm leading-relaxed">
+      <p
+        className={`underline opacity-50 text-sm leading-relaxed ${
+          isDarkMode ? "text-lightGray " : "text-black"
+        }`}
+      >
         Source
       </p>
 
@@ -15,7 +19,9 @@ export default function Source({ source }) {
           {/* Display the source URL */}
           <a
             href={url}
-            className="underline hover:text-blue-800 text-sm leading-relaxed"
+            className={`underline hover:text-blue-800 text-sm leading-relaxed ${
+              isDarkMode ? "text-white" : "text-black"
+            }`}
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -1,19 +1,34 @@
-export default function Meaning({ meanings }) {
+export default function Meaning({ meanings, isDarkMode }) {
   return (
     <div>
       {meanings.map((meaning, meaningIndex) => (
         <section key={meaningIndex} className="mb-6">
           {/* Part of speech and divider */}
           <div className="flex flex-row justify-between items-center mb-2">
-            <p className="font-bold lowercase my-4">{meaning.partOfSpeech}</p>
-            <hr className="w-[85%]" />
+            <p
+              className={`font-bold lowercase my-4 ${
+                isDarkMode ? "text-white" : "text-black"
+              }`}
+            >
+              {meaning.partOfSpeech}
+            </p>
+            <hr
+              className={`w-[85%] ${
+                isDarkMode ? "border-[#3a3a3a]" : "border-[#3a3a3a]"
+              }`}
+            />
           </div>
 
           <p className="font mb-4 text-gray-500">Meaning</p>
 
           <ul className="ml-5">
             {meaning.definitions.map((definition, defIndex) => (
-              <li key={defIndex} className="mb-2 text-white relative pl-6">
+              <li
+                key={defIndex}
+                className={`mb-2 relative pl-6 ${
+                  isDarkMode ? "text-white" : "text-black"
+                }`}
+              >
                 <span className="text-purple-600 absolute -left-1">•</span>{" "}
                 {/* Custom purple bullet */}
                 {definition.definition}

@@ -20,7 +20,7 @@ export default function BasicDemo() {
   const [selectedFont, setSelectedFont] = useState("font-sans");
 
   // State for dark mode
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   // Function to handle search from SearchComponent, memoized to avoid unnecessary re-creation
   const handleSearch = useCallback(async (searchTerm) => {
@@ -54,7 +54,7 @@ export default function BasicDemo() {
       />
 
       {/* Search component with a callback function for search handling */}
-      <SearchComponent onSearch={handleSearch} />
+      <SearchComponent onSearch={handleSearch} isDarkMode={isDarkMode} />
 
       {/* Loading and Error handling */}
       {loading && (
@@ -73,13 +73,17 @@ export default function BasicDemo() {
           <PlayText
             word={definition.word}
             phonetics={definition.phonetics?.[0]}
+            isDarkMode={isDarkMode}
           />
 
           {/* Meaning(s) */}
-          <Meaning meanings={definition.meanings} />
+          <Meaning meanings={definition.meanings} isDarkMode={isDarkMode} />
 
           {/* Source of the word */}
-          <Source source={definition.sourceUrls || []} />
+          <Source
+            source={definition.sourceUrls || []}
+            isDarkMode={isDarkMode}
+          />
         </>
       )}
     </div>

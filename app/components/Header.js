@@ -54,7 +54,9 @@ export default function Header({ setSelectedFont, setIsDarkMode, isDarkMode }) {
             options={fontOptions}
             optionLabel="name"
             placeholder="Select a Font"
-            className="w-full md:w-14rem rounded-lg bg-black"
+            className={`w-full md:w-14rem rounded-lg ${
+              isDarkMode ? "bg-black" : "bg-white"
+            }`}
             checkmark={true}
           />
           {/* Vertical Line */}
@@ -71,10 +73,10 @@ export default function Header({ setSelectedFont, setIsDarkMode, isDarkMode }) {
 
         {/* Conditional Dark Mode Icon */}
         <Image
-          src={`./assets/images/icon-${isDarkMode ? "moon" : "sun"}.svg`}
+          src={`./assets/images/icon-${isDarkMode ? "moon" : "moon"}.svg`}
           width={20}
           height={20}
-          alt={isDarkMode ? "moon pic" : "sun pic"}
+          alt={isDarkMode ? "moon pic" : "moon pic"}
         />
       </div>
     </div>

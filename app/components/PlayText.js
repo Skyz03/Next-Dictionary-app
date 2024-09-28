@@ -1,12 +1,16 @@
 import Image from "next/image";
 import { Button } from "primereact/button";
 
-export default function PlayText({ word, phonetics }) {
+export default function PlayText({ word, phonetics, isDarkMode }) {
   return (
     <div className="flex justify-between items-center">
       <div className="space-y-2">
         {/* Word in lowercase */}
-        <h1 className="text-heading-l-mobile lowercase md:text-heading-l-mobile font-bold">
+        <h1
+          className={`text-heading-l-mobile lowercase md:text-heading-l-mobile font-bold ${
+            isDarkMode ? "text-white" : "text-black"
+          }`}
+        >
           {word}
         </h1>
 
