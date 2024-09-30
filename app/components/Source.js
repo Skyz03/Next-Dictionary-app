@@ -7,7 +7,7 @@ export default function Source({ source, isDarkMode }) {
       {/* Source Label */}
       <p
         className={`underline opacity-50 text-sm leading-relaxed ${
-          isDarkMode ? "text-lightGray " : "text-black"
+          isDarkMode ? "text-mediumGray " : "text-black"
         }`}
       >
         Source
@@ -20,7 +20,7 @@ export default function Source({ source, isDarkMode }) {
           <a
             href={url}
             className={`underline hover:text-blue-800 text-sm leading-relaxed ${
-              isDarkMode ? "text-white" : "text-black"
+              isDarkMode ? "text-white" : "text-slateBlack"
             }`}
             target="_blank"
             rel="noopener noreferrer"

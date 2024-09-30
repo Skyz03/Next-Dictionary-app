@@ -7,7 +7,7 @@ export default function Meaning({ meanings, isDarkMode }) {
           <div className="flex flex-row justify-between items-center mb-2">
             <p
               className={`font-bold lowercase my-4 ${
-                isDarkMode ? "text-white" : "text-black"
+                isDarkMode ? "text-white" : "text-slateBlack"
               }`}
             >
               {meaning.partOfSpeech}
@@ -19,14 +19,14 @@ export default function Meaning({ meanings, isDarkMode }) {
             />
           </div>
 
-          <p className="font mb-4 text-gray-500">Meaning</p>
+          <p className="font mb-4 text-mediumGray">Meaning</p>
 
           <ul className="ml-5">
             {meaning.definitions.map((definition, defIndex) => (
               <li
                 key={defIndex}
                 className={`mb-2 relative pl-6 ${
-                  isDarkMode ? "text-white" : "text-black"
+                  isDarkMode ? "text-white" : "text-slateBlack"
                 }`}
               >
                 <span className="text-purple-600 absolute -left-1">•</span>{" "}
@@ -44,7 +44,7 @@ export default function Meaning({ meanings, isDarkMode }) {
           {/* Synonyms Section */}
           {meaning.synonyms && meaning.synonyms.length > 0 && (
             <div className="flex flex-row gap-4 mt-4">
-              <p className="text-gray-500">Synonyms</p>
+              <p className="text-slateBlack">Synonyms</p>
               <p className="text-brandPurple font-bold">
                 {meaning.synonyms.map((synonym, index) => (
                   <a

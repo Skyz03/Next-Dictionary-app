@@ -54,13 +54,13 @@ export default function Header({ setSelectedFont, setIsDarkMode, isDarkMode }) {
             options={fontOptions}
             optionLabel="name"
             placeholder="Select a Font"
-            className={`w-full font-bold md:w-14rem rounded-lg ${
+            className={`w-full text-slateBlack font-bold md:w-14rem rounded-lg ${
               isDarkMode ? "bg-black" : "bg-white"
             }`}
             checkmark={true}
           />
           {/* Vertical Line */}
-          <div className="border-l h-8 border-gray-400"></div>
+          <div className="border-l h-8 border-softGray"></div>
         </div>
 
         {/* Dark Mode Toggle Switch */}

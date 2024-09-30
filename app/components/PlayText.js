@@ -10,7 +10,7 @@ export default function PlayText({ word, phonetics, isDarkMode }) {
         {/* Word in lowercase */}
         <h1
           className={`text-heading-l-mobile lowercase md:text-heading-l-mobile font-bold ${
-            isDarkMode ? "text-white" : "text-black"
+            isDarkMode ? "text-white" : "text-slateBlack"
           }`}
         >
           {word}

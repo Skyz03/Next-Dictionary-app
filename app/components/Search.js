@@ -44,7 +44,7 @@ const SearchComponent = ({ onSearch, isDarkMode }) => {
           onKeyDown={handleKeyDown}
           placeholder="Search for any word…"
           className={`w-full py-2 px-4 bg-transparent font-bold border-none focus:ring-0 ${
-            isDarkMode ? "text-white" : "text-black"
+            isDarkMode ? "text-white" : "text-slateBlack"
           }`}
         />
         <Button
