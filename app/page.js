@@ -36,7 +36,7 @@ export default function BasicDemo() {
             <span className="text-6xl mb-4">😞</span> {/* Sad emoji */}
             <p className="text-xl font-bold">No Definitions Found</p>
             <p className="text-gray-500 mt-2">
-              Sorry pal, we couldn't find definitions for the word you were
+              Sorry pal, we couldn&#39;t find definitions for the word you were
               looking for. You can try the search again at a later time or head
               to the web instead.
             </p>
