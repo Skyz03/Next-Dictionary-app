@@ -61,7 +61,7 @@ const SearchComponent = ({ onSearch, isDarkMode }) => {
         </Button>
       </div>
       {error && (
-        <p className="text-red-500 text-sm mt-2">Whoops, can’t be empty…</p>
+        <p className="text-alertRed text-sm mt-2">Whoops, can’t be empty…</p>
       )}
     </div>
   );

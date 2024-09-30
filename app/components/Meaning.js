@@ -44,7 +44,7 @@ export default function Meaning({ meanings, isDarkMode }) {
           {/* Synonyms Section */}
           {meaning.synonyms && meaning.synonyms.length > 0 && (
             <div className="flex flex-row gap-4 mt-4">
-              <p className="text-slateBlack">Synonyms</p>
+              <p className="text-mediumGray">Synonyms</p>
               <p className="text-brandPurple font-bold">
                 {meaning.synonyms.map((synonym, index) => (
                   <a
@@ -67,7 +67,7 @@ export default function Meaning({ meanings, isDarkMode }) {
           {/* Antonyms Section */}
           {meaning.antonyms && meaning.antonyms.length > 0 && (
             <div className="flex flex-row gap-4 mt-2">
-              <p className="text-gray-500">Antonyms</p>
+              <p className="text-mediumGray">Antonyms</p>
               <p className="text-brandPurple font-bold">
                 {meaning.antonyms.map((antonym, index) => (
                   <a

@@ -34,8 +34,10 @@ export default function BasicDemo() {
         setError(
           <div className="flex flex-col items-center justify-center text-center">
             <span className="text-6xl mb-4">😞</span> {/* Sad emoji */}
-            <p className="text-xl font-bold">No Definitions Found</p>
-            <p className="text-gray-500 mt-2">
+            <p className="text-xl text-slateBlack font-bold">
+              No Definitions Found
+            </p>
+            <p className="text-mediumGray mt-2">
               Sorry pal, we couldn&#39;t find definitions for the word you were
               looking for. You can try the search again at a later time or head
               to the web instead.
@@ -48,7 +50,7 @@ export default function BasicDemo() {
         <div className="flex flex-col items-center justify-center text-center">
           <span className="text-6xl mb-4">😞</span> {/* Sad emoji */}
           <p className="text-xl font-bold">An Error Occurred</p>
-          <p className="text-gray-500 mt-2">
+          <p className="text-mediumGray mt-2">
             Sorry pal, something went wrong while fetching the word. Please try
             again later.
           </p>
@@ -62,7 +64,7 @@ export default function BasicDemo() {
   return (
     <div
       className={`p-4 ${selectedFont} ${
-        isDarkMode ? "bg-black" : "bg-white"
+        isDarkMode ? "bg-deepBlack" : "bg-white"
       }  `}
     >
       <div className="flex flex-col gap-5 min-h-screen xl:w-1/2 xl:mx-auto">
@@ -80,13 +82,13 @@ export default function BasicDemo() {
         {loading && (
           <p
             className={`text-center ${
-              isDarkMode ? "text-white" : "text-black"
+              isDarkMode ? "text-white" : "text-slateBlack"
             }`}
           >
             Loading...
           </p>
         )}
-        {error && <p className="text-red-500 text-center">{error}</p>}
+        {error && <p className="text-alertRed text-center">{error}</p>}
 
         {/* Render the components if a definition is available */}
         {definition && (
