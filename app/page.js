@@ -63,48 +63,52 @@ export default function BasicDemo() {
     <div
       className={`p-4 ${selectedFont} ${
         isDarkMode ? "bg-black" : "bg-white"
-      } flex flex-col gap-5 min-h-screen`}
+      }  `}
     >
-      {/* Header component, pass setSelectedFont and setIsDarkMode to update font and color */}
-      <Header
-        setSelectedFont={setSelectedFont}
-        setIsDarkMode={setIsDarkMode}
-        isDarkMode={isDarkMode}
-      />
+      <div className="flex flex-col gap-5 min-h-screen xl:w-1/2 xl:mx-auto">
+        {/* Header component, pass setSelectedFont and setIsDarkMode to update font and color */}
+        <Header
+          setSelectedFont={setSelectedFont}
+          setIsDarkMode={setIsDarkMode}
+          isDarkMode={isDarkMode}
+        />
 
-      {/* Search component with a callback function for search handling */}
-      <SearchComponent onSearch={handleSearch} isDarkMode={isDarkMode} />
+        {/* Search component with a callback function for search handling */}
+        <SearchComponent onSearch={handleSearch} isDarkMode={isDarkMode} />
 
-      {/* Loading and Error handling */}
-      {loading && (
-        <p
-          className={`text-center ${isDarkMode ? "text-white" : "text-black"}`}
-        >
-          Loading...
-        </p>
-      )}
-      {error && <p className="text-red-500 text-center">{error}</p>}
+        {/* Loading and Error handling */}
+        {loading && (
+          <p
+            className={`text-center ${
+              isDarkMode ? "text-white" : "text-black"
+            }`}
+          >
+            Loading...
+          </p>
+        )}
+        {error && <p className="text-red-500 text-center">{error}</p>}
 
-      {/* Render the components if a definition is available */}
-      {definition && (
-        <>
-          {/* Word and pronunciation (PlayText) */}
-          <PlayText
-            word={definition.word}
-            phonetics={definition.phonetics?.[0]}
-            isDarkMode={isDarkMode}
-          />
+        {/* Render the components if a definition is available */}
+        {definition && (
+          <>
+            {/* Word and pronunciation (PlayText) */}
+            <PlayText
+              word={definition.word}
+              phonetics={definition.phonetics?.[0]}
+              isDarkMode={isDarkMode}
+            />
 
-          {/* Meaning(s) */}
-          <Meaning meanings={definition.meanings} isDarkMode={isDarkMode} />
+            {/* Meaning(s) */}
+            <Meaning meanings={definition.meanings} isDarkMode={isDarkMode} />
 
-          {/* Source of the word */}
-          <Source
-            source={definition.sourceUrls || []}
-            isDarkMode={isDarkMode}
-          />
-        </>
-      )}
+            {/* Source of the word */}
+            <Source
+              source={definition.sourceUrls || []}
+              isDarkMode={isDarkMode}
+            />
+          </>
+        )}
+      </div>
     </div>
   );
 }
