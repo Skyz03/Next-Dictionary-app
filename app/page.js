@@ -20,7 +20,7 @@ export default function BasicDemo() {
   const [selectedFont, setSelectedFont] = useState("font-sans");
 
   // State for dark mode
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   // Function to handle search from SearchComponent, memoized to avoid unnecessary re-creation
   const handleSearch = useCallback(async (searchTerm) => {

@@ -4,7 +4,7 @@ import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 
 const SearchComponent = ({ onSearch, isDarkMode }) => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("keyboard"); // Set default search term to "keyboard"
   const [error, setError] = useState(false); // State for managing input error
 
   const handleSearch = () => {
@@ -36,8 +36,7 @@ const SearchComponent = ({ onSearch, isDarkMode }) => {
       <div
         className={`flex justify-center items-center border w-full mx-auto p-inputgroup rounded-lg transition-colors hover:border-purple-500 focus-within:border-purple-500 ${
           isDarkMode ? "bg-gray-900" : "bg-softGray"
-        } ${error ? " border-red-500" : "border-black"}
-         `} // Hover and focus state for purple border
+        } ${error ? " border-red-500" : "border-black"}`}
       >
         <InputText
           value={searchTerm}
