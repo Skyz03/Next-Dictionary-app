@@ -34,12 +34,12 @@ Users should be able to:
 
 ### Screenshot
 
-![Screenshot](./screenshot.jpg)
+![Screenshot](image.png))
 
 ### Links
 
-- [Solution URL](https://your-solution-url.com)
-- [Live Site URL](https://your-live-site-url.com)
+- [Solution URL](https://github.com/Skyz03/Next-Dictionary-app)
+- [Live Site URL](https://next-dictionary-app-one.vercel.app)
 
 ## My Process
 
@@ -95,9 +95,8 @@ In future iterations, I would like to:
 
 ## Author
 
-- Website - [Your Name](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://twitter.com/yourusername)
+- Website - [Your Name](https://aakibshah.com.np)
+- Frontend Mentor - [@Skyz03](https://www.frontendmentor.io/profile/Skyz03)
 
 ## Acknowledgments
 
