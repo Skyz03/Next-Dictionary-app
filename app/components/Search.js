@@ -43,8 +43,8 @@ const SearchComponent = ({ onSearch, isDarkMode }) => {
           value={searchTerm}
           onChange={handleInputChange} // Call custom input change handler
           onKeyDown={handleKeyDown}
-          placeholder="Enter a word..."
-          className={`w-full py-2 px-4 bg-transparent border-none focus:ring-0 ${
+          placeholder="Search for any word…"
+          className={`w-full py-2 px-4 bg-transparent font-bold border-none focus:ring-0 ${
             isDarkMode ? "text-white" : "text-black"
           }`}
         />

@@ -1,7 +1,9 @@
 import Image from "next/image";
+import { useState } from "react";
 import { Button } from "primereact/button";
 
 export default function PlayText({ word, phonetics, isDarkMode }) {
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <div className="flex justify-between items-center">
       <div className="space-y-2">
@@ -26,16 +28,22 @@ export default function PlayText({ word, phonetics, isDarkMode }) {
       {phonetics && phonetics.audio && (
         <Button
           aria-label="Play"
-          className="p-2 bg-transparent border-none focus:outline-none"
+          className="p-2 bg-transparent border-none focus:outline-none focus:shadow-none"
           onClick={() => {
             const audio = new Audio(phonetics.audio);
             audio.play();
           }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
           <Image
             width={48}
             height={48}
-            src="/assets/images/icon-play.svg"
+            src={
+              isHovered
+                ? "/assets/images/icon-play-hover.svg"
+                : "/assets/images/icon-play.svg"
+            }
             alt="Play"
           />
         </Button>
