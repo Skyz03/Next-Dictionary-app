@@ -1,4 +1,4 @@
-# Dictionary Web App
+# Dictionary Web Appli
 
 This project is a dictionary web app built using React and Next.js. It allows users to search for words and see definitions, synonyms, and antonyms. The app fetches data from the Free Dictionary API and presents it in a clean, mobile-first design with dark mode and font customization features.
 
